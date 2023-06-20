@@ -1,8 +1,9 @@
-import DBClient, { DBClient as DBClientC } from "../providers/database-client";
-import { genForActor } from "../utils/actor-gen_key";
+import DBClient from '../providers/database-client';
+import { fetchForActor } from '../utils/actor-fetch-key';
+import { genForActor } from '../utils/actor-gen-key';
 
 export default class UserService {
-    private db: DBClientC = DBClient;
+    private db = DBClient;
 
     public async createUserS(username: string, password: string, email: string){
         await this.db.createUser(username, password, email);
@@ -18,8 +19,13 @@ export default class UserService {
         this.db.updateUser(username, updateContent);
     }
 
-    public getUserS(username: string){
-        return this.db.getUser(username);
+    public async getUserS(username: string){
+        const result = await this.db.getUser(username);
+        const userKeys = await fetchForActor(username);
+        return {
+            ...result,
+            keys: userKeys
+        };
     }
 
     public getUsersS(){
