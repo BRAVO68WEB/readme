@@ -1,31 +1,32 @@
-"use client"
+/* eslint-disable sonarjs/cognitive-complexity */
+'use client';
 
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { RichTextEditor, Link } from '@mantine/tiptap';
-import { useEditor } from '@tiptap/react';
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
+import { PhotoIcon } from '@heroicons/react/24/solid';
+import { Link,RichTextEditor } from '@mantine/tiptap';
 import Highlight from '@tiptap/extension-highlight';
-import StarterKit from '@tiptap/starter-kit';
-import Underline from '@tiptap/extension-underline';
-import TextAlign from '@tiptap/extension-text-align';
-import Superscript from '@tiptap/extension-superscript';
 import SubScript from '@tiptap/extension-subscript';
-import { Fragment, useState } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import Superscript from '@tiptap/extension-superscript';
+import TextAlign from '@tiptap/extension-text-align';
+import Underline from '@tiptap/extension-underline';
+import { useEditor } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import { Fragment, useState } from 'react';
 
 const publishingOptions = [
   { title: 'Published', description: 'This blog post can be viewed by anyone who has the link.', current: true },
   { title: 'Draft', description: 'This job posting will no longer be publicly accessible.', current: false },
-]
+];
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 
 export default function Example() {
   const content =
-  'This is a simple example with a toolbar and the Starter Kit.'
+  'This is a simple example with a toolbar and the Starter Kit.';
 
   const editor = useEditor({
     extensions: [
@@ -39,7 +40,7 @@ export default function Example() {
     ],
     content,
   });
-  const [selected, setSelected] = useState(publishingOptions[0])
+  const [selected, setSelected] = useState(publishingOptions[0]);
   return (
     <form>
       <div className="space-y-12">
@@ -263,5 +264,5 @@ export default function Example() {
     </Listbox>
       </div>
     </form>
-  )
+  );
 }

@@ -1,13 +1,16 @@
-import DBClient, { DBClient as DBClientC } from "../providers/database-client";
-import { genForActor } from "../utils/actor-gen_key";
+import DBClient from '../providers/database-client';
+import { genForActor } from '../utils/actor-gen-key';
 
 export default class UserService {
-    private db: DBClientC = DBClient;
+    private db = DBClient;
 
     public async createUserS(username: string, password: string, email: string){
+        // eslint-disable-next-line
         await this.db.createUser(username, password, email);
+        // eslint-disable-next-line
         const result = await this.db.getUser(username);
-        const userKeys = await genForActor(username)
+        // eslint-disable-next-line
+        const userKeys = await genForActor(username);
         return {
             ...result,
             keys: userKeys

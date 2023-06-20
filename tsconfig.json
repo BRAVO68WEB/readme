@@ -1,0 +1,32 @@
+{
+    "extends": "@bravo68web/tsconfig/base.json",
+    "compilerOptions": {
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"paths": {
+			"@/*": ["./*"]
+		}
+	},
+	"include": ["packages/micro-app/next-env.d.ts", "**/*.ts", "**/*.tsx", "packages/micro-app/.next/types/**/*.ts"],
+	"exclude": ["node_modules"],
+    "rules": {
+        "@typescript-eslint/no-unsafe-argument": "off",
+    }
+}
