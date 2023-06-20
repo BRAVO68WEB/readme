@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { Fragment, useState, useEffect } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
+import { Menu, Transition } from '@headlessui/react';
+import { EllipsisVerticalIcon } from '@heroicons/react/20/solid';
+import { Fragment, useEffect,useState } from 'react';
 
 interface Tabs {
 	name: string;
 }
 
 const tabs: Tabs[] = [
-	{ name: "Published" },
-	{ name: "Draft" },
+	{ name: 'Published' },
+	{ name: 'Draft' },
 ];
 
 interface Posts {
@@ -26,39 +26,39 @@ interface Posts {
 
 const posts: Posts[] = [
 	{
-		title: "Boost your conversion rate",
-		href: "/boost-your-conversion-rate",
-		category: "SEO",
-		date: new Date("Mar 16, 2020"),
-		banner: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-		author: "Paul York",
-		tags: ["SEO", "Optimization"],
+		title: 'Boost your conversion rate',
+		href: '/boost-your-conversion-rate',
+		category: 'SEO',
+		date: new Date('Mar 16, 2020'),
+		banner: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		author: 'Paul York',
+		tags: ['SEO', 'Optimization'],
 		isDraft: false,
 	},
 	{
-		title: "How to use search engine optimization to drive sales",
-		href: "/how-to-use-search-engine-optimization-to-drive-sales",
-		category: "Marketing",
-		author: "Paul York",
-		date: new Date("Mar 10, 2020"),
-		banner: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-		tags: ["SEO", "Optimization"],
+		title: 'How to use search engine optimization to drive sales',
+		href: '/how-to-use-search-engine-optimization-to-drive-sales',
+		category: 'Marketing',
+		author: 'Paul York',
+		date: new Date('Mar 10, 2020'),
+		banner: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		tags: ['SEO', 'Optimization'],
 		isDraft: false,
 	},
 	{
-		title: "Improve your customer experience",
-		href: "/improve-your-customer-experience",
-		category: "Customer Success",
-		author: "Paul York",
-		date: new Date("Feb 12, 2020"),
-		banner: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-		tags: ["SEO", "Optimization"],
+		title: 'Improve your customer experience',
+		href: '/improve-your-customer-experience',
+		category: 'Customer Success',
+		author: 'Paul York',
+		date: new Date('Feb 12, 2020'),
+		banner: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+		tags: ['SEO', 'Optimization'],
 		isDraft: true,
 	}
 ];
 
 function classNames(...classes: string[]): string {
-	return classes.filter(Boolean).join(" ");
+	return classes.filter(Boolean).join(' ');
 }
 
 export default function PostList() {
@@ -99,16 +99,17 @@ export default function PostList() {
 					<div className="hidden sm:block">
 						<nav className="-mb-px flex space-x-8">
 							{tabs.map((tab) => (
+								// eslint-disable-next-line react/button-has-type
 								<button
 									key={tab.name}
 									className={classNames(
 										tab == selected
-											? "border-indigo-500 text-indigo-600"
-											: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
-										"whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium",
+											? 'border-indigo-500 text-indigo-600'
+											: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+										'whitespace-nowrap border-b-2 px-1 pb-4 text-sm font-medium',
 									)}
 									aria-current={
-										tab == selected ? "page" : undefined
+										tab == selected ? 'page' : undefined
 									}
 									onClick={() => setSelected(tab)}
 								>
@@ -122,10 +123,10 @@ export default function PostList() {
 			<div>
 				<ul role="list" className="divide-y divide-gray-100">
 					{posts.filter((cond) => {
-						if (selected.name == "Draft")
-							return cond.isDraft == true;
-						else if (selected.name == "Published")
-							return cond.isDraft == false;
+						if (selected.name == 'Draft')
+							return cond.isDraft;
+						else if (selected.name == 'Published')
+							return !cond.isDraft;
 					} ).map((post) => (
 						<li
 							key={post.title}
@@ -151,7 +152,7 @@ export default function PostList() {
 										post.tags.map((tag) => (
 											<span
 												key={tag}
-												className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800"
+												className="inline-flex items-center rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-800"
 											>
 												{tag}
 											</span>
@@ -167,7 +168,7 @@ export default function PostList() {
 									</p>
 									{post.date ? (
 										<p className="mt-1 text-xs leading-5 text-gray-500">
-											Last seen{" "}
+											Last seen{' '}
 											<time
 												dateTime={
 													post.date.toISOString()
@@ -213,9 +214,9 @@ export default function PostList() {
 														href="#"
 														className={classNames(
 															active
-																? "bg-gray-50"
-																: "",
-															"block px-3 py-1 text-sm leading-6 text-gray-900",
+																? 'bg-gray-50'
+																: '',
+															'block px-3 py-1 text-sm leading-6 text-gray-900',
 														)}
 													>
 														Edit
@@ -231,9 +232,9 @@ export default function PostList() {
 														href="#"
 														className={classNames(
 															active
-																? "bg-gray-50"
-																: "",
-															"block px-3 py-1 text-sm leading-6 text-gray-900",
+																? 'bg-gray-50'
+																: '',
+															'block px-3 py-1 text-sm leading-6 text-gray-900',
 														)}
 													>
 														Delete
