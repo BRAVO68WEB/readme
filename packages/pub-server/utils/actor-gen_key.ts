@@ -1,6 +1,8 @@
 import shell from 'shelljs';
+import sanitize from 'sanitize-filename';
 
 export const genForActor = async (actorName: string) => {
+    actorName = sanitize(actorName);
     const isPrefent = shell.find(`keys/${actorName}.key`)
 
     if(isPrefent.code === 0){
