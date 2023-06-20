@@ -29,15 +29,10 @@ export default class UserController extends UserService {
         }
     };
 
-    public createUser = async (req: Request, res: Response) => {
+    public updateUser = (req: Request, res: Response) => {
         try{
-            const { username, password, email } = req.body as { username: string, password: string, email: string };
-            const result = await this.createUserS(
-                username,
-                password,
-                email
-            );
-            res.json(result);
+            this.updateUserS(req.params.username, req.body);
+            res.json({ success: true });
         }
         catch(error: any){
             console.log(error);
@@ -47,10 +42,16 @@ export default class UserController extends UserService {
         }
     };
 
-    public updateUser = (req: Request, res: Response) => {
+    public loginUser = async (req: Request, res: Response) => {
         try{
-            this.updateUserS(req.params.username, req.body);
-            res.json({ success: true });
+            const user = await this.loginUserS(req.body.username, req.body.password);
+            if(!user){
+                throw new Error('Invalid username or password');
+            }
+            res.json({
+                success: true,
+                user
+            });
         }
         catch(error: any){
             console.log(error);

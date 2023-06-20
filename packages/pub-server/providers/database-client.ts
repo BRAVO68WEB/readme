@@ -10,15 +10,18 @@ export class DBClient {
     }
 
     public init(){
-        this.db.prepare('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
+        this.db.prepare('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, hash TEXT, salt TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
     }
 
-    public createUser(username: string, password: string, email: string){
-        this.db.prepare('INSERT INTO users (username, password, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?)').run(username, password, email, new Date().toISOString(), new Date().toISOString());
+    public createUser(username: string, email: string, hash: string, salt: string){
+        this.db.prepare('INSERT INTO users (username, hash, salt, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)').run(username, hash, salt, email, new Date().toISOString(), new Date().toISOString());
     }
 
-    public getUser(username: string){
+    public getUser(username: string, extraInfo: string[] = []){
         const toShow = ['id', 'username', 'email', 'created_at', 'updated_at'];
+        if(extraInfo.length > 0){
+            toShow.push(...extraInfo);
+        }
         const result = this.db.prepare(`SELECT ${toShow.join(', ')} FROM users WHERE username = ?`).get(username);
         if(result){
             return result;
