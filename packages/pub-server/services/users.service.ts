@@ -1,4 +1,5 @@
 import DBClient from '../providers/database-client';
+import { fetchForActor } from '../utils/actor-fetch-key';
 import { genForActor } from '../utils/actor-gen-key';
 
 export default class UserService {
@@ -18,8 +19,13 @@ export default class UserService {
         this.db.updateUser(username, updateContent);
     }
 
-    public getUserS(username: string){
-        return this.db.getUser(username);
+    public async getUserS(username: string){
+        const result = await this.db.getUser(username);
+        const userKeys = await fetchForActor(username);
+        return {
+            ...result,
+            keys: userKeys
+        };
     }
 
     public getUsersS(){

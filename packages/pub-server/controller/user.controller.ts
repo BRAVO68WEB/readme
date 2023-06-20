@@ -16,9 +16,9 @@ export default class UserController extends UserService {
         }
     };
 
-    public getUser = (req: Request, res: Response) => {
+    public getUser = async (req: Request, res: Response) => {
         try{
-            const user = this.getUserS(req.params.username);
+            const user = await this.getUserS(req.params.username);
             res.json(user);
         }
         catch(error: any){
