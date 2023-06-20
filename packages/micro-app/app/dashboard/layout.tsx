@@ -1,8 +1,10 @@
-"use client";
+'use client';
 
-import { Fragment, useState } from "react";
-import { usePathname } from "next/navigation";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import { Dialog, Menu, Transition } from '@headlessui/react';
+import {
+	ChevronDownIcon,
+	MagnifyingGlassIcon,
+} from '@heroicons/react/20/solid';
 import {
 	Bars3Icon,
 	BellIcon,
@@ -14,27 +16,25 @@ import {
 	HomeIcon,
 	UsersIcon,
 	XMarkIcon,
-} from "@heroicons/react/24/outline";
-import {
-	ChevronDownIcon,
-	MagnifyingGlassIcon,
-} from "@heroicons/react/20/solid";
+} from '@heroicons/react/24/outline';
+import { usePathname } from 'next/navigation';
+import { Fragment, useState } from 'react';
 
 const navigation = [
-	{ name: "Dashboard", href: "/dashboard", icon: HomeIcon },
-	{ name: "Posts", href: "/dashboard/posts", icon: CalendarIcon },
-	{ name: "Settings", href: "/dashboard/settings", icon: ChartPieIcon },
+	{ name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
+	{ name: 'Posts', href: '/dashboard/posts', icon: CalendarIcon },
+	{ name: 'Settings', href: '/dashboard/settings', icon: ChartPieIcon },
 ];
 const teams = [
-	{ id: 1, name: "View Blog", href: "/", initial: "↗️", current: false },
+	{ id: 1, name: 'View Blog', href: '/', initial: '↗️', current: false },
 ];
 const userNavigation = [
-	{ name: "Your profile", href: "/dashboard/settings" },
-	{ name: "Sign out", href: "/logout" },
+	{ name: 'Your profile', href: '/dashboard/settings' },
+	{ name: 'Sign out', href: '/logout' },
 ];
 
 function classNames(...classes: string[]) {
-	return classes.filter(Boolean).join(" ");
+	return classes.filter(Boolean).join(' ');
 }
 
 interface DashboardLayoutProps {
@@ -137,18 +137,18 @@ export default function Layout({ children }: DashboardLayoutProps) {
 																		className={classNames(
 																			pathname ===
 																				item.href
-																				? "bg-indigo-700 text-white"
-																				: "text-indigo-200 hover:text-white hover:bg-indigo-700",
-																			"group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+																				? 'bg-indigo-700 text-white'
+																				: 'text-indigo-200 hover:text-white hover:bg-indigo-700',
+																			'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
 																		)}
 																	>
 																		<item.icon
 																			className={classNames(
 																				pathname ===
 																					item.href
-																					? "text-white"
-																					: "text-indigo-200 group-hover:text-white",
-																				"h-6 w-6 shrink-0",
+																					? 'text-white'
+																					: 'text-indigo-200 group-hover:text-white',
+																				'h-6 w-6 shrink-0',
 																			)}
 																			aria-hidden="true"
 																		/>
@@ -177,9 +177,9 @@ export default function Layout({ children }: DashboardLayoutProps) {
 																	}
 																	className={classNames(
 																		team.current
-																			? "bg-indigo-700 text-white"
-																			: "text-indigo-200 hover:text-white hover:bg-indigo-700",
-																		"group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+																			? 'bg-indigo-700 text-white'
+																			: 'text-indigo-200 hover:text-white hover:bg-indigo-700',
+																		'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
 																	)}
 																>
 																	<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
@@ -242,18 +242,18 @@ export default function Layout({ children }: DashboardLayoutProps) {
 													href={item.href}
 													className={classNames(
 														pathname === item.href
-															? "bg-indigo-700 text-white"
-															: "text-indigo-200 hover:text-white hover:bg-indigo-700",
-														"group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+															? 'bg-indigo-700 text-white'
+															: 'text-indigo-200 hover:text-white hover:bg-indigo-700',
+														'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
 													)}
 												>
 													<item.icon
 														className={classNames(
 															pathname ===
 																item.href
-																? "text-white"
-																: "text-indigo-200 group-hover:text-white",
-															"h-6 w-6 shrink-0",
+																? 'text-white'
+																: 'text-indigo-200 group-hover:text-white',
+															'h-6 w-6 shrink-0',
 														)}
 														aria-hidden="true"
 													/>
@@ -277,9 +277,9 @@ export default function Layout({ children }: DashboardLayoutProps) {
 													href={team.href}
 													className={classNames(
 														team.current
-															? "bg-indigo-700 text-white"
-															: "text-indigo-200 hover:text-white hover:bg-indigo-700",
-														"group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+															? 'bg-indigo-700 text-white'
+															: 'text-indigo-200 hover:text-white hover:bg-indigo-700',
+														'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
 													)}
 												>
 													<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-indigo-400 bg-indigo-500 text-[0.625rem] font-medium text-white">
@@ -412,9 +412,9 @@ export default function Layout({ children }: DashboardLayoutProps) {
 															href={item.href}
 															className={classNames(
 																active
-																	? "bg-gray-50"
-																	: "",
-																"block px-3 py-1 text-sm leading-6 text-gray-900",
+																	? 'bg-gray-50'
+																	: '',
+																'block px-3 py-1 text-sm leading-6 text-gray-900',
 															)}
 														>
 															{item.name}
