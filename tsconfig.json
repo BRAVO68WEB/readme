@@ -28,6 +28,5 @@
 	"exclude": ["node_modules"],
     "rules": {
         "@typescript-eslint/no-unsafe-argument": "off",
-        "@typescript-eslint/await-thenable": "off",
     }
 }

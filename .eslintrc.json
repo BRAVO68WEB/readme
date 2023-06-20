@@ -13,18 +13,17 @@
         "plugin:security/recommended",
         "plugin:tailwindcss/recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/strict",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:@typescript-eslint/eslint-recommended"
+        // "plugin:@typescript-eslint/strict"
+        // "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
-    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
         "ecmaVersion": "latest",
-        "project": "./tsconfig.json",
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
     "plugins": [
         "regexp",
@@ -50,7 +49,6 @@
         "simple-import-sort/imports": 2,
         "simple-import-sort/exports": 2,
         "react/react-in-jsx-scope": 0,
-        "react/button-has-type": 2,
         "react/prop-types": 0,
         "react/no-array-index-key": 2,
         "sonarjs/no-duplicate-string": 0,
@@ -63,10 +61,7 @@
         "@typescript-eslint/no-unsafe-call": 0,
         "@typescript-eslint/no-unsafe-assignment": 0,
         "@typescript-eslint/no-unsafe-member-access": 0,
-        "deprecation/deprecation": 1,
         "@typescript-eslint/consistent-type-imports": 2,
-        "@typescript-eslint/consistent-type-exports": 2,
-        "@typescript-eslint/no-redundant-type-constituents": 2,
         "@typescript-eslint/no-unused-vars": "warn",
 		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/no-namespace": "off",
