@@ -1,0 +1,20 @@
+backend:
+- packages/pub-server/**/*
+
+frontend:
+- packages/micro-app/**/*
+
+documentation:
+- docs
+- README.md
+
+github-actions:
+- .github/workflows/*
+
+github-meta:
+- .github/**/*
+
+dependencies:
+- package.json
+- yarn.lock
+- packages/*/package.json
