@@ -5,11 +5,8 @@ export default class UserService {
     private db = DBClient;
 
     public async createUserS(username: string, password: string, email: string){
-        // eslint-disable-next-line
         await this.db.createUser(username, password, email);
-        // eslint-disable-next-line
         const result = await this.db.getUser(username);
-        // eslint-disable-next-line
         const userKeys = await genForActor(username);
         return {
             ...result,
