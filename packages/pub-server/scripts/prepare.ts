@@ -27,7 +27,7 @@ if(DBClient.getUsers().length === 0){
         name: 'username',
         message: 'Username: ' 
     },{
-        type: 'input',
+        type: 'password',
         name: 'password',
         message: 'Password: '
     }, {

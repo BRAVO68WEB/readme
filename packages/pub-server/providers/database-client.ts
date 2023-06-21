@@ -10,11 +10,12 @@ export class DBClient {
     }
 
     public init(){
-        this.db.prepare('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, hash TEXT, salt TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
+        this.db.prepare('CREATE TABLE IF NOT EXISTS users (id BIGINT PRIMARY KEY, username TEXT UNIQUE, hash TEXT, salt TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
     }
 
-    public createUser(username: string, email: string, hash: string, salt: string){
-        this.db.prepare('INSERT INTO users (username, hash, salt, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)').run(username, hash, salt, email, new Date().toISOString(), new Date().toISOString());
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    public createUser(id: string, username: string, email: string, hash: string, salt: string){
+        this.db.prepare('INSERT INTO users (id, username, hash, salt, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)').run(id, username, hash, salt, email, new Date().toISOString(), new Date().toISOString());
     }
 
     public getUser(username: string, extraInfo: string[] = []){
