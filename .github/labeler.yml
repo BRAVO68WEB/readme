@@ -1,21 +1,21 @@
 backend:
-- packages/**/*
+    - packages/**/*
 
 frontend:
-- apps/**/*
+    - apps/**/*
 
 documentation:
-- docs
-- README.md
+    - docs
+    - README.md
 
 github-actions:
-- .github/workflows/*
+    - .github/workflows/*
 
 github-meta:
-- .github/**/*
+    - .github/**/*
 
 dependencies:
-- package.json
-- yarn.lock
-- packages/*/package.json
-- apps/*/package.json
+    - package.json
+    - yarn.lock
+    - packages/*/package.json
+    - apps/*/package.json

@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 declare global {
 	// eslint-disable-next-line @typescript-eslint/no-namespace
@@ -14,4 +14,4 @@ const ZodEnvironmentVariables = z.object({
 
 ZodEnvironmentVariables.parse(process.env);
 
-console.log('✅ Environment variables verified!');
+console.log("✅ Environment variables verified!");

@@ -1,17 +1,17 @@
 {
+	"private": true,
 	"name": "readme",
 	"version": "0.0.1",
 	"description": "A microbloging Web App",
-	"author": "BRAVO68WEB",
 	"license": "MIT",
-	"private": true,
+	"author": "BRAVO68WEB",
+	"scripts": {
+		"prettier": "prettier --write ."
+	},
 	"workspaces": [
 		"packages/*",
 		"apps/*"
 	],
-	"scripts": {
-		"prettier": "prettier --write ."
-	},
 	"dependencies": {},
 	"devDependencies": {
 		"deepmerge": "^4.3.1",

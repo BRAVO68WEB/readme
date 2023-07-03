@@ -1,6 +1,5 @@
 {
-    "extends": "@bravo68web/tsconfig/base.json",
-    "compilerOptions": {
+	"compilerOptions": {
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
@@ -24,9 +23,15 @@
 			"@/*": ["./*"]
 		}
 	},
-	"include": ["packages/micro-app/next-env.d.ts", "**/*.ts", "**/*.tsx", "packages/micro-app/.next/types/**/*.ts"],
 	"exclude": ["node_modules"],
-    "rules": {
-        "@typescript-eslint/no-unsafe-argument": "off",
-    }
+	"extends": "@bravo68web/tsconfig/base.json",
+	"include": [
+		"packages/micro-app/next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"packages/micro-app/.next/types/**/*.ts"
+	],
+	"rules": {
+		"@typescript-eslint/no-unsafe-argument": "off"
+	}
 }
