@@ -1,8 +1,7 @@
+import type { Context, Next } from "hono";
 import jwt from "jsonwebtoken";
 
 import { serverPrivateKey, serverPublicKey } from "../utils/read-server-keys";
-
-import { Context, Next } from "hono";
 
 interface IAccessToken {
 	id: string;

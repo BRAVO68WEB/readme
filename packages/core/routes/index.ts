@@ -1,11 +1,11 @@
-import { Hono } from "hono";
-import { user } from "./user.routes";
-import pkg from "../package.json";
-
 import { serveStatic } from "@hono/node-server/serve-static";
-import { poweredBy } from "hono/powered-by";
+import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+import { poweredBy } from "hono/powered-by";
+
+import pkg from "../package.json";
+import { user } from "./user.routes";
 
 const app = new Hono();
 
@@ -17,7 +17,7 @@ app.use(
 	cors({
 		origin: "*",
 		allowMethods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-		maxAge: 86400,
+		maxAge: 86_400,
 	}),
 );
 
