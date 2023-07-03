@@ -1,60 +1,63 @@
-import type { Request,Response } from 'express';
+import { Context } from 'hono';
 
 import UserService from '../services/users.service';
 
 export default class UserController extends UserService {
-    public getAllUsers = (_req: Request, res: Response) => {
+    public getAllUsers = (ctx: Context) => {
         try{
             const users = this.getUsersS();
-            res.json(users);
+            return ctx.json(users);
         }
         catch(error: any){
             console.log(error);
-            res.send({
+            return ctx.json({
                 success: false
             });
         }
     };
 
-    public getUser = (req: Request, res: Response) => {
+    public getUser = (ctx: Context) => {
         try{
-            const user = this.getUserS(req.params.username);
-            res.json(user);
+            const username = ctx.req.param('username');
+            const user = this.getUserS(username);
+            return ctx.json(user);
         }
         catch(error: any){
             console.log(error);
-            res.send({
+            return ctx.json({
                 success: false
             });
         }
     };
 
-    public createUser = async (req: Request, res: Response) => {
+    public createUser = async (ctx: Context) => {
         try{
-            const { username, password, email } = req.body as { username: string, password: string, email: string };
-            const result = await this.createUserS(
+            const { username, password, email } = await ctx.req.json();
+            const ctxult = await this.createUserS(
                 username,
                 password,
                 email
             );
-            res.json(result);
+            return ctx.json(ctxult);
         }
         catch(error: any){
             console.log(error);
-            res.send({
+            return ctx.json({
                 success: false
             });
         }
     };
 
-    public updateUser = (req: Request, res: Response) => {
+    public updateUser = (ctx: Context) => {
         try{
-            this.updateUserS(req.params.username, req.body);
-            res.json({ success: true });
+            const username = ctx.req.param('username');
+            const body = ctx.req.json();
+            this.updateUserS(username, body);
+            return ctx.json({ success: true });
         }
         catch(error: any){
             console.log(error);
-            res.send({
+            return ctx.json({
                 success: false
             });
         }

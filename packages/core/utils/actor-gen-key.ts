@@ -1,7 +1,7 @@
 import sanitize from 'sanitize-filename';
 import shell from 'shelljs';
 
-export const genForActor = (actorName: string) => {
+export const genForActor = (actorName: string): Promise<any> => {
     actorName = sanitize(actorName);
     const isPrefent = shell.find(`keys/${actorName}.key`);
 
@@ -16,9 +16,9 @@ export const genForActor = (actorName: string) => {
         console.log(`✅ ${actorName}'s Key is now add!`);
     }
 
-    return {
+    return Promise.resolve({
         actorName,
         privateKey: shell.cat(`keys/${actorName}.key`).stdout,
         publicKey: shell.cat(`keys/${actorName}.key.pub`).stdout
-    };
+    });
 };

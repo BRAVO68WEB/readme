@@ -5,8 +5,8 @@ export default class UserService {
     private db = DBClient;
 
     public async createUserS(username: string, password: string, email: string){
-        await this.db.createUser(username, password, email);
-        const result = await this.db.getUser(username);
+        this.db.createUser(username, password, email);
+        const result = this.db.getUser(username);
         const userKeys = await genForActor(username);
         return {
             ...result,

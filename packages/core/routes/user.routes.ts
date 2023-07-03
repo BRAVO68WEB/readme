@@ -1,15 +1,14 @@
-import { Router } from 'express';
-
+import { Hono } from 'hono';
 import UserController from '../controller/user.controller';
 
-const router = Router();
+const user = new Hono();
 const userController = new UserController();
 
-router.get('/', userController.getAllUsers);
-router.get('/:username', userController.getUser);
-router.post('/', userController.createUser);
-router.patch('/', userController.updateUser);
+user.get('/', userController.getAllUsers);
+user.get('/:username', userController.getUser);
+user.post('/', userController.createUser);
+user.patch('/', userController.updateUser);
 
-console.log('Loaded User Routes Successfully!');
+console.log('↗️, Loaded User Routes!');
 
-export default router;
+export {user};

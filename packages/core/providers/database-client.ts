@@ -10,11 +10,11 @@ export class DBClient {
     }
 
     public init(){
-        this.db.prepare('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
+        return this.db.prepare('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
     }
 
     public createUser(username: string, password: string, email: string){
-        this.db.prepare('INSERT INTO users (username, password, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?)').run(username, password, email, new Date().toISOString(), new Date().toISOString());
+        return this.db.prepare('INSERT INTO users (username, password, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?)').run(username, password, email, new Date().toISOString(), new Date().toISOString());
     }
 
     public getUser(username: string){
@@ -36,7 +36,7 @@ export class DBClient {
         const values = Object.values(updateContent);
         const updateString = keys.map((key) => `${key} = ?`).join(', ');
         const updateValues = [...values, new Date().toISOString()];
-        this.db.prepare(`UPDATE users SET ${updateString} WHERE username = ?`).run(...updateValues, username);
+        return this.db.prepare(`UPDATE users SET ${updateString} WHERE username = ?`).run(...updateValues, username);
     }
 }
 
