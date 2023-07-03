@@ -2,10 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-	height: 100%;
+:root {
+    --color-text: rgb(3, 3, 18);
+    --color-background: rgb(237, 237, 252);
+    --color-primary: rgb(221, 44, 44);
+    --color-secondary: rgb(255, 255, 255);
+    --color-accent: rgb(17, 218, 232);
 }
 
-body {
-	height: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
