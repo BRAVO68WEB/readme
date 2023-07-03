@@ -1,5 +1,5 @@
 {
-  "name": "pub-server",
+  "name": "@readme/core",
   "version": "1.0.0",
   "description": "A Activity pub server serving Readme",
   "main": "index.ts",
