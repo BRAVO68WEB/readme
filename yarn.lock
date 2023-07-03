@@ -755,12 +755,12 @@
     clsx "1.1.1"
     csstype "3.0.9"
 
-"@mantine/tiptap@^6.0.14":
-  version "6.0.14"
-  resolved "https://registry.yarnpkg.com/@mantine/tiptap/-/tiptap-6.0.14.tgz#cb047c88d4b84c36e0c648991bf5f8d8518ab181"
-  integrity sha512-J7hhgLcCAN4snc7PKlU6ou0/Tvf0bWhexR/vExoNdYLvnCd7JfdDGWL+1O1SaXd2kDgWCmxzLTAiXoS71+l/Pw==
+"@mantine/tiptap@^6.0.15":
+  version "6.0.15"
+  resolved "https://registry.yarnpkg.com/@mantine/tiptap/-/tiptap-6.0.15.tgz#666ec26d43363e336256115fc34610c04d95af40"
+  integrity sha512-vOyxg3yQJ6XeEgiMGiezKlEwNiONV47snbXhs+pi1wJLvLBiZTPvtE2nntgbT4M7H91HjAS/Q2aHgbEOrN1eYA==
   dependencies:
-    "@mantine/utils" "6.0.14"
+    "@mantine/utils" "6.0.15"
 
 "@mantine/utils@6.0.14":
   version "6.0.14"
