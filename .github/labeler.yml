@@ -1,8 +1,8 @@
 backend:
-- packages/pub-server/**/*
+- packages/**/*
 
 frontend:
-- packages/micro-app/**/*
+- apps/**/*
 
 documentation:
 - docs
@@ -18,3 +18,4 @@ dependencies:
 - package.json
 - yarn.lock
 - packages/*/package.json
+- apps/*/package.json
