@@ -6,13 +6,15 @@
 	"license": "MIT",
 	"private": true,
 	"workspaces": [
-		"packages/*"
+		"packages/*",
+		"apps/*"
 	],
 	"scripts": {
 		"prettier": "prettier --write ."
 	},
 	"dependencies": {},
 	"devDependencies": {
+		"deepmerge": "^4.3.1",
 		"prettier": "^2.8.8"
 	}
 }
