@@ -272,10 +272,10 @@
     prettier-plugin-tailwindcss "0.3.0"
     vitest "0.32.0"
 
-"@bravo68web/tsconfig@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@bravo68web/tsconfig/-/tsconfig-1.1.0.tgz#b5cf50632f0f897caf25844e604a14c49a437e89"
-  integrity sha512-uYixZt9kDIfOlgOqGxB4/6oX/45Yb8Sgst6+tz+Xbq2Uu7u7/kEuu14bzemoBvhzB0OmkKJ2M2wz2jEC5iIR0w==
+"@bravo68web/tsconfig@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@bravo68web/tsconfig/-/tsconfig-1.1.2.tgz#80c760ce4d5b395b8cbc0b57597f409a2e030ae8"
+  integrity sha512-LXIxzMkiAjwCHQBLLKJkLCe8+kYHEKIO8yFPfeZ0reHF5lXNJFnkG6faAiGobyHeaGGuFeiwP2X4HwsAva4Wsw==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
