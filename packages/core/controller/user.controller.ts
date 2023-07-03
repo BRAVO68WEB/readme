@@ -1,62 +1,89 @@
-import type { Request,Response } from 'express';
+import type { Context } from "hono";
 
-import UserService from '../services/users.service';
+import AuthService from "../services/auth.service";
+import UserService from "../services/users.service";
+
+const authService = new AuthService();
 
 export default class UserController extends UserService {
-    public getAllUsers = (_req: Request, res: Response) => {
-        try{
-            const users = this.getUsersS();
-            res.json(users);
-        }
-        catch(error: any){
-            console.log(error);
-            res.send({
-                success: false
-            });
-        }
-    };
+	public getAllUsers = (ctx: Context) => {
+		try {
+			const users = this.getUsersS();
+			return ctx.json(users);
+		} catch (error: any) {
+			console.log(error);
+			return ctx.json({
+				success: false,
+			});
+		}
+	};
 
-    public getUser = (req: Request, res: Response) => {
-        try{
-            const user = this.getUserS(req.params.username);
-            res.json(user);
-        }
-        catch(error: any){
-            console.log(error);
-            res.send({
-                success: false
-            });
-        }
-    };
+	public getUser = (ctx: Context) => {
+		try {
+			const username = ctx.req.param("username");
+			const user = this.getUserS(username);
+			return ctx.json(user);
+		} catch (error: any) {
+			console.log(error);
+			return ctx.json({
+				success: false,
+			});
+		}
+	};
 
-    public createUser = async (req: Request, res: Response) => {
-        try{
-            const { username, password, email } = req.body as { username: string, password: string, email: string };
-            const result = await this.createUserS(
-                username,
-                password,
-                email
-            );
-            res.json(result);
-        }
-        catch(error: any){
-            console.log(error);
-            res.send({
-                success: false
-            });
-        }
-    };
+	public updateUser = (ctx: Context) => {
+		try {
+			const username = ctx.req.param("username");
+			const body = ctx.req.json();
+			this.updateUserS(username, body);
+			return ctx.json({ success: true });
+		} catch (error: any) {
+			console.log(error);
+			return ctx.json({
+				success: false,
+			});
+		}
+	};
 
-    public updateUser = (req: Request, res: Response) => {
-        try{
-            this.updateUserS(req.params.username, req.body);
-            res.json({ success: true });
-        }
-        catch(error: any){
-            console.log(error);
-            res.send({
-                success: false
-            });
-        }
-    };
+	public loginUser = async (ctx: Context) => {
+		try {
+			const body = await ctx.req.json();
+			const user = (await this.loginUserS(
+				body.username,
+				body.password,
+			)) as any;
+			if (!user) {
+				throw new Error("Invalid username or password");
+			}
+			const token = await authService.generateAccessTokenS(
+				user.id,
+				user.username,
+			);
+			return ctx.json({
+				success: true,
+				token,
+			});
+		} catch (error: any) {
+			console.log(error);
+			return ctx.json({
+				success: false,
+			});
+		}
+	};
+
+	public me = async (ctx: Context) => {
+		try {
+			const username = ctx.req.header("user_name") as string;
+			const user = await this.meS(username);
+			return ctx.json({
+				success: true,
+				user,
+			});
+		} catch (error: any) {
+			console.log(error);
+			return ctx.json({
+				success: false,
+			});
+		}
+	};
 }

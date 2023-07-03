@@ -1,43 +1,75 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import type { Database } from 'better-sqlite3';
-import Datebase from 'better-sqlite3';
+import type { Database } from "better-sqlite3";
+import Datebase from "better-sqlite3";
 
 export class DBClient {
-    private db: Database;
-    
-    constructor(){
-        this.db = new Datebase('data/data.sqlite', { verbose: console.log });
-    }
+	private db: Database;
 
-    public init(){
-        this.db.prepare('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
-    }
+	constructor() {
+		this.db = new Datebase("data/data.sqlite", { verbose: console.log });
+	}
 
-    public createUser(username: string, password: string, email: string){
-        this.db.prepare('INSERT INTO users (username, password, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?)').run(username, password, email, new Date().toISOString(), new Date().toISOString());
-    }
+	public init() {
+		return this.db
+			.prepare(
+				"CREATE TABLE IF NOT EXISTS users (id BIGINT PRIMARY KEY, username TEXT UNIQUE, hash TEXT, salt TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)",
+			)
+			.run();
+	}
 
-    public getUser(username: string){
-        const toShow = ['id', 'username', 'email', 'created_at', 'updated_at'];
-        const result = this.db.prepare(`SELECT ${toShow.join(', ')} FROM users WHERE username = ?`).get(username);
-        if(result){
-            return result;
-        }
-        return null;
-    }
+	// eslint-disable-next-line @typescript-eslint/ban-types
+	public createUser(
+		id: string,
+		username: string,
+		email: string,
+		hash: string,
+		salt: string,
+	) {
+		return this.db
+			.prepare(
+				"INSERT INTO users (id, username, hash, salt, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
+			)
+			.run(
+				id,
+				username,
+				hash,
+				salt,
+				email,
+				new Date().toISOString(),
+				new Date().toISOString(),
+			);
+	}
 
-    public getUsers(){
-        const toShow = ['id', 'username', 'email', 'created_at', 'updated_at'];
-        return this.db.prepare(`SELECT ${toShow.join(', ')} FROM users`).all();
-    }
+	public getUser(username: string, extraInfo: string[] = []) {
+		const toShow = ["id", "username", "email", "created_at", "updated_at"];
+		if (extraInfo.length > 0) {
+			toShow.push(...extraInfo);
+		}
+		const result = this.db
+			.prepare(
+				`SELECT ${toShow.join(", ")} FROM users WHERE username = ?`,
+			)
+			.get(username);
+		if (result) {
+			return result;
+		}
+		return null;
+	}
 
-    public updateUser(username: string, updateContent: any){
-        const keys = Object.keys(updateContent);
-        const values = Object.values(updateContent);
-        const updateString = keys.map((key) => `${key} = ?`).join(', ');
-        const updateValues = [...values, new Date().toISOString()];
-        this.db.prepare(`UPDATE users SET ${updateString} WHERE username = ?`).run(...updateValues, username);
-    }
+	public getUsers() {
+		const toShow = ["id", "username", "email", "created_at", "updated_at"];
+		return this.db.prepare(`SELECT ${toShow.join(", ")} FROM users`).all();
+	}
+
+	public updateUser(username: string, updateContent: any) {
+		const keys = Object.keys(updateContent);
+		const values = Object.values(updateContent);
+		const updateString = keys.map((key) => `${key} = ?`).join(", ");
+		const updateValues = [...values, new Date().toISOString()];
+		this.db
+			.prepare(`UPDATE users SET ${updateString} WHERE username = ?`)
+			.run(...updateValues, username);
+	}
 }
 
 export default new DBClient();
