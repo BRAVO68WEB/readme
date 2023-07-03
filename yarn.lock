@@ -239,10 +239,10 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     to-fast-properties "^2.0.0"
 
-"@bravo68web/eslint-config@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@bravo68web/eslint-config/-/eslint-config-1.0.3.tgz#7f7b10a60f0c39ed6e88f41a79c7b5e7327f396f"
-  integrity sha512-24iZV7QsixT82jz72jEXNgPd1f76Igzn5aSpm7ErYCVQzmIK1fZuWq8Dv2ULkuBn7QhmlEknP/p+eswJX7ELpA==
+"@bravo68web/eslint-config@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@bravo68web/eslint-config/-/eslint-config-1.1.2.tgz#9eee1479475b0fd630fd4924d5b811d269c10f1f"
+  integrity sha512-SYhboW9GV/zA5U29/KHx4CgwB2iX4kka21soLmcu1MY0NWqUuizRYNTEBjzn2UOGmu+dqyRtrQoq5OwDNqfn5w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "5.59.9"
     "@typescript-eslint/parser" "5.59.9"
