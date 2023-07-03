@@ -19,7 +19,7 @@ app.use("*", cors({
 }));
 
 // Routes
-app.route('/user', user);
+app.route('/users', user);
 
 // Static Files
 app.use('/uplaods', serveStatic({ root: './uploads'}))

@@ -1,8 +1,14 @@
+import enquirer from 'enquirer';
 import shell from 'shelljs';
 
-const isPrefent = shell.find('keys/server.key');
+import DBClient from '../providers/database-client';
+import UserService from '../services/users.service';
 
-if(isPrefent.code === 0){
+DBClient.init();
+
+const isPresent = shell.find('keys/server.key');
+
+if(isPresent.code === 0){
     console.log('✅ Server Key is present!');
 }
 else{
@@ -12,4 +18,42 @@ else{
     shell.exec('ssh-keygen -e -m PEM -f keys/server.key > keys/server.key.pub');
 
     console.log('✅ Server Key is now present!');
+}
+
+if(DBClient.getUsers().length === 0){
+    console.log('❌ No users are present!');
+    console.log('✅ Creating a new user...');
+
+    const questions = await enquirer.prompt([{
+        type: 'input',
+        name: 'username',
+        message: 'Username: ' 
+    },{
+        type: 'password',
+        name: 'password',
+        message: 'Password: '
+    }, {
+        type: 'input',
+        name: 'email',
+        message: 'Email: '
+    }]);
+
+    const { username, password, email } = questions as { username: string, password: string, email: string };
+    const result = await new UserService().createUserS(
+        username,
+        password,
+        email
+    );
+
+    if(result){
+        console.log('✅ User created successfully!');
+    }
+    else{
+        console.log('❌ User creation failed!');
+    }
+
+    console.log('✅ User creation complete!');
+}
+else {
+    console.log('✅ Users are present!');
 }

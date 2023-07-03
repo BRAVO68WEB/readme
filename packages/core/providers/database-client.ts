@@ -10,15 +10,19 @@ export class DBClient {
     }
 
     public init(){
-        return this.db.prepare('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
+        return this.db.prepare('CREATE TABLE IF NOT EXISTS users (id BIGINT PRIMARY KEY, username TEXT UNIQUE, hash TEXT, salt TEXT, email TEXT UNIQUE, created_at DATE, updated_at DATE)').run();
     }
 
-    public createUser(username: string, password: string, email: string){
-        return this.db.prepare('INSERT INTO users (username, password, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?)').run(username, password, email, new Date().toISOString(), new Date().toISOString());
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    public createUser(id: string, username: string, email: string, hash: string, salt: string){
+        return this.db.prepare('INSERT INTO users (id, username, hash, salt, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)').run(id, username, hash, salt, email, new Date().toISOString(), new Date().toISOString());
     }
 
-    public getUser(username: string){
+    public getUser(username: string, extraInfo: string[] = []){
         const toShow = ['id', 'username', 'email', 'created_at', 'updated_at'];
+        if(extraInfo.length > 0){
+            toShow.push(...extraInfo);
+        }
         const result = this.db.prepare(`SELECT ${toShow.join(', ')} FROM users WHERE username = ?`).get(username);
         if(result){
             return result;
@@ -36,7 +40,7 @@ export class DBClient {
         const values = Object.values(updateContent);
         const updateString = keys.map((key) => `${key} = ?`).join(', ');
         const updateValues = [...values, new Date().toISOString()];
-        return this.db.prepare(`UPDATE users SET ${updateString} WHERE username = ?`).run(...updateValues, username);
+        this.db.prepare(`UPDATE users SET ${updateString} WHERE username = ?`).run(...updateValues, username);
     }
 }
 
