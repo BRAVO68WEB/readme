@@ -1,5 +1,4 @@
 import enquirer from "enquirer";
-import shell from "shelljs";
 
 import DBClient from "../providers/database-client";
 import UserService from "../services/users.service";
