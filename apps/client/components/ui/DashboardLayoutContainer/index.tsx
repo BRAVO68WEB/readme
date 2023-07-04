@@ -4,6 +4,7 @@ import React, { Fragment, useState } from "react";
 
 import { Dialog, Transition } from "@headlessui/react";
 import {
+    ArrowLeftOnRectangleIcon,
     Bars3Icon,
     CalendarIcon,
     ChartPieIcon,
@@ -11,6 +12,7 @@ import {
     DocumentDuplicateIcon,
     FolderIcon,
     HomeIcon,
+    UserIcon,
     UsersIcon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -24,6 +26,11 @@ const navigation = [
     { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
     { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
     { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+];
+const settingsNavigation = [
+    { name: "Profile", href: "#", icon: UserIcon },
+    { name: "Settings", href: "#", icon: Cog6ToothIcon },
+    { name: "Logout", href: "#", icon: ArrowLeftOnRectangleIcon },
 ];
 
 interface DashboardLayoutContainerProps {
@@ -125,16 +132,21 @@ export default function DashboardLayoutContainer({ children }: DashboardLayoutCo
                                                     </ul>
                                                 </li>
                                                 <li className="mt-auto">
-                                                    <a
-                                                        href="#"
-                                                        className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
-                                                    >
-                                                        <Cog6ToothIcon
-                                                            className="h-6 w-6 shrink-0"
-                                                            aria-hidden="true"
-                                                        />
-                                                        Settings
-                                                    </a>
+                                                    {settingsNavigation.map((item, index) => {
+                                                        return (
+                                                            <a
+                                                                key={index}
+                                                                href="#"
+                                                                className="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                                                <item.icon
+                                                                    className="h-6 w-6 shrink-0"
+                                                                    aria-hidden="true"
+                                                                />
+                                                                {item.name}
+                                                            </a>
+                                                        );
+                                                    })}
                                                 </li>
                                             </ul>
                                         </nav>
@@ -181,15 +193,23 @@ export default function DashboardLayoutContainer({ children }: DashboardLayoutCo
                                     </ul>
                                 </li>
                                 <li className="mt-auto">
-                                    <a
-                                        href="#"
-                                        className="group -mx-2 flex flex justify-center gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
-                                    >
-                                        <Cog6ToothIcon
-                                            className="h-6 w-6 shrink-0"
-                                            aria-hidden="true"
-                                        />
-                                    </a>
+                                    <ul className="-mx-2 space-y-1">
+                                        {settingsNavigation.map((item, index) => {
+                                            return (
+                                                <li key={index} className={"my-2"}>
+                                                    <a
+                                                        href="#"
+                                                        className="group -mx-2 flex justify-center gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
+                                                    >
+                                                        <item.icon
+                                                            className="h-6 w-6 shrink-0"
+                                                            aria-hidden="true"
+                                                        />
+                                                    </a>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
                                 </li>
                             </ul>
                         </nav>
