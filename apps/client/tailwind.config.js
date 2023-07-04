@@ -8,11 +8,11 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: "var(--color-primary)",
-                secondary: "var(--color-secondary)",
-                accent: "var(--color-accent)",
-                text: "var(--color-text)",
-                background: "var(--color-background)",
+                primary: "rgb(var(--color-primary) / <alpha-value>)",
+                secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+                accent: "rgb(var(--color-accent) / <alpha-value>)",
+                text: "rgb(var(--color-text) / <alpha-value>)",
+                background: "rgb(var(--color-background) / <alpha-value>)",
             }
         }
     },
