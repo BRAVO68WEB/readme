@@ -1,3 +1,7 @@
 {
-    "extends": "@bravo68web/tsconfig/base.json"
+	"compilerOptions": {
+		"outDir": "dist"
+	},
+	"exclude": ["dist", "node_modules"],
+	"extends": "@bravo68web/tsconfig/base.json"
 }

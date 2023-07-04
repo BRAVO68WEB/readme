@@ -1,28 +1,21 @@
-import 'dotenv/config';
-import './config/fetch';
+import "dotenv/config";
+import "./config/fetch";
 
-import cors from 'cors';
-import express from 'express';
-import helmet from 'helmet';
-import morgan from 'morgan';
+import { serve } from "@hono/node-server";
 
-import DBClient from './providers/database-client';
-import router from './routes';
+import DBClient from "./providers/database-client";
+import { app } from "./routes";
 
 DBClient.init();
 
-const app = express();
-app.use(cors());
-app.use(helmet());
-app.use(morgan('tiny'));
-app.use(express.json());
+if (DBClient.getUsers().length === 0) {
+	console.log("❌ No users are present!");
+	
+	console.log("Please a new user using the `user:create` script.");
+	process.exit(1);
+}
 
-app.use('/api', router);
-app.use('/health', (_req, res) => {
-    res.send('OK!');
-});
-app.use('/uploads', express.static('uploads'));
-
-app.listen(process.env.PORT, () => {
-    console.log("Hey I'm running!");
+serve({
+	fetch: app.fetch,
+	port: 4000,
 });
