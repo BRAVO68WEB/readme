@@ -1,10 +1,7 @@
 import crypto from "node:crypto";
 
-import { SnowflakeId } from "@akashrajpurohit/snowflake-id";
-
 import DBClient from "../providers/database-client";
-import { fetchForActor } from "../utils/actor-fetch-key";
-import { genForActor } from "../utils/actor-gen-key";
+import { fetchForActor, genForActor, genNewSnowflakeId  } from "../utils";
 
 export default class UserService {
 	private db = DBClient;
@@ -14,13 +11,7 @@ export default class UserService {
 		password: string,
 		email: string,
 	) {
-		const uid = SnowflakeId({
-			workerId: 1,
-			epoch: Date.now(),
-			nodeIdBits: 10,
-			sequenceBits: 12,
-		});
-		const id = uid.generate();
+		const id = genNewSnowflakeId();
 		const salt = crypto.randomBytes(16).toString("hex");
 		const hash = crypto
 			.pbkdf2Sync(password, salt, 1000, 64, "sha512")

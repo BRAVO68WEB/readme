@@ -6,6 +6,7 @@ import { poweredBy } from "hono/powered-by";
 
 import pkg from "../package.json";
 import { user } from "./user.routes";
+import { post } from "./post.routes";
 
 const app = new Hono();
 
@@ -23,6 +24,7 @@ app.use(
 
 // Routes
 app.route("/users", user);
+app.route("/posts", post);
 
 // Static Files
 app.use("/uplaods", serveStatic({ root: "./uploads" }));

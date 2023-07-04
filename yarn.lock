@@ -3258,6 +3258,17 @@ human-signals@^4.3.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-4.3.1.tgz#ab7f811e851fca97ffbd2c1fe9a958964de321b2"
   integrity sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==
 
+hyperflake@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/hyperflake/-/hyperflake-0.1.0.tgz#6ca3ff407f9b79e856b8813fcf77bd7278220c23"
+  integrity sha512-zx+kuA8SKD9ORfrn+7bzBU1c3KyEmNJ9Mx/e1SJd3tORx7zrBz0CUusztCBjf/HU8nSdzBBNVVfPY+dhkORHXw==
+  dependencies:
+    hyperflake "link:../../.cache/yarn/v6/npm-hyperflake-0.1.0-6ca3ff407f9b79e856b8813fcf77bd7278220c23-integrity/node_modules/hyperflake"
+
+"hyperflake@link:":
+  version "0.0.0"
+  uid ""
+
 ieee754@^1.1.13:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
