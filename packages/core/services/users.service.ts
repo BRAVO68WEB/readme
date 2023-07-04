@@ -25,8 +25,16 @@ export default class UserService {
 		};
 	}
 
+	public changePasswordS(username: string, password: string) {
+		const salt = crypto.randomBytes(16).toString("hex");
+		const hash = crypto
+			.pbkdf2Sync(password, salt, 1000, 64, "sha512")
+			.toString("hex");
+		return this.db.updateUser(username, { hash, salt });
+	}
+
 	public updateUserS(username: string, updateContent: any) {
-		this.db.updateUser(username, updateContent);
+		return this.db.updateUser(username, updateContent);
 	}
 
 	public async getUserS(username: string) {

@@ -71,8 +71,8 @@ export class DBClient {
 		const keys = Object.keys(updateContent);
 		const values = Object.values(updateContent);
 		const updateString = keys.map((key) => `${key} = ?`).join(", ");
-		const updateValues = [...values, new Date().toISOString()];
-		this.db
+		const updateValues = [...values];
+		return this.db
 			.prepare(`UPDATE users SET ${updateString} WHERE username = ?`)
 			.run(...updateValues, username);
 	}
