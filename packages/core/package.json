@@ -10,7 +10,9 @@
 	"scripts": {
 		"build": "tsc",
 		"dev": "NODE_ENV=development nodemon --watch '**/*.ts' --exec node --loader @esbuild-kit/esm-loader index.ts",
-		"prepare": "is-ci || node --loader @esbuild-kit/esm-loader scripts/prepare.ts",
+		"prepare": "is-ci",
+		"user:create": "node --loader @esbuild-kit/esm-loader scripts/prepare.ts",
+		"user:reset:password": "node --loader @esbuild-kit/esm-loader scripts/reset-password.ts",
 		"start": "node --loader @esbuild-kit/esm-loader index.ts"
 	},
 	"dependencies": {
@@ -24,6 +26,7 @@
 		"is-ci": "^3.0.1",
 		"jsonwebtoken": "^9.0.0",
 		"multer": "^1.4.5-lts.1",
+		"nodemailer": "^6.9.3",
 		"sanitize-filename": "^1.6.3",
 		"shelljs": "^0.8.5",
 		"zod": "3.21.4"
@@ -34,6 +37,7 @@
 		"@bravo68web/tsconfig": "^1.1.2",
 		"@esbuild-kit/esm-loader": "^2.5.5",
 		"@types/jsonwebtoken": "^9.0.2",
+		"@types/nodemailer": "^6.4.8",
 		"@types/shelljs": "^0.8.12",
 		"nodemon": "^2.0.22",
 		"prettier": "^2.8.8",

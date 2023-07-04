@@ -43,10 +43,10 @@ importers:
         version: 6.0.15(@mantine/core@6.0.14)(@mantine/hooks@6.0.15)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/tiptap':
         specifier: ^6.0.14
-        version: 6.0.14(@mantine/core@6.0.14)(@mantine/hooks@6.0.15)(@tabler/icons-react@2.22.0)(@tiptap/extension-link@2.0.3)(@tiptap/react@2.0.3)(react@18.2.0)
+        version: 6.0.14(@mantine/core@6.0.14)(@mantine/hooks@6.0.15)(@tabler/icons-react@2.23.0)(@tiptap/extension-link@2.0.3)(@tiptap/react@2.0.3)(react@18.2.0)
       '@tabler/icons-react':
-        specifier: ^2.22.0
-        version: 2.22.0(react@18.2.0)
+        specifier: ^2.23.0
+        version: 2.23.0(react@18.2.0)
       '@tailwindcss/forms':
         specifier: ^0.5.3
         version: 0.5.3(tailwindcss@3.3.2)
@@ -99,8 +99,8 @@ importers:
         specifier: 13.4.5
         version: 13.4.5(eslint@8.42.0)(typescript@5.1.6)
       next:
-        specifier: 13.4.7
-        version: 13.4.7(@babel/core@7.22.6)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 13.4.8
+        version: 13.4.8(@babel/core@7.22.6)(react-dom@18.2.0)(react@18.2.0)
       postcss:
         specifier: 8.4.24
         version: 8.4.24
@@ -152,6 +152,9 @@ importers:
       multer:
         specifier: ^1.4.5-lts.1
         version: 1.4.5-lts.1
+      nodemailer:
+        specifier: ^6.9.3
+        version: 6.9.3
       sanitize-filename:
         specifier: ^1.6.3
         version: 1.6.3
@@ -166,8 +169,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(eslint@8.44.0)(prettier@2.8.8)(tailwindcss@3.3.2)(typescript@5.1.6)
       '@bravo68web/prettier-config':
-        specifier: ^1.0.3
-        version: 1.0.3(eslint@8.44.0)(prettier@2.8.8)
+        specifier: ^1.1.2
+        version: 1.1.2(eslint@8.44.0)(prettier@2.8.8)
       '@bravo68web/tsconfig':
         specifier: ^1.1.2
         version: 1.1.2(typescript@5.1.6)
@@ -177,6 +180,9 @@ importers:
       '@types/jsonwebtoken':
         specifier: ^9.0.2
         version: 9.0.2
+      '@types/nodemailer':
+        specifier: ^6.4.8
+        version: 6.4.8
       '@types/shelljs':
         specifier: ^0.8.12
         version: 0.8.12
@@ -490,8 +496,8 @@ packages:
       - tailwindcss
     dev: true
 
-  /@bravo68web/prettier-config@1.0.3(eslint@8.44.0)(prettier@2.8.8):
-    resolution: {integrity: sha512-PHg/Qdo3jNWqN1xeMAecPJx/J+S6CE+OOoZSy9kGWDFdlO2NFGU5hCJuNe1ExlnSQqdnIwIh6br3i81f/wa3dw==}
+  /@bravo68web/prettier-config@1.1.2(eslint@8.44.0)(prettier@2.8.8):
+    resolution: {integrity: sha512-edTR08pAFTU+Tuv42oMOoTdgwRXiyKW8J8WY0HXpRyvit7lUzL1uHh/CNoCQZOWV8Ao7STOjVVWOQiCwg6HAcA==}
     peerDependencies:
       prettier: 2.x
     dependencies:
@@ -1130,7 +1136,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@mantine/tiptap@6.0.14(@mantine/core@6.0.14)(@mantine/hooks@6.0.15)(@tabler/icons-react@2.22.0)(@tiptap/extension-link@2.0.3)(@tiptap/react@2.0.3)(react@18.2.0):
+  /@mantine/tiptap@6.0.14(@mantine/core@6.0.14)(@mantine/hooks@6.0.15)(@tabler/icons-react@2.23.0)(@tiptap/extension-link@2.0.3)(@tiptap/react@2.0.3)(react@18.2.0):
     resolution: {integrity: sha512-J7hhgLcCAN4snc7PKlU6ou0/Tvf0bWhexR/vExoNdYLvnCd7JfdDGWL+1O1SaXd2kDgWCmxzLTAiXoS71+l/Pw==}
     peerDependencies:
       '@mantine/core': 6.0.14
@@ -1143,7 +1149,7 @@ packages:
       '@mantine/core': 6.0.14(@emotion/react@11.11.1)(@mantine/hooks@6.0.15)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/hooks': 6.0.15(react@18.2.0)
       '@mantine/utils': 6.0.14(react@18.2.0)
-      '@tabler/icons-react': 2.22.0(react@18.2.0)
+      '@tabler/icons-react': 2.23.0(react@18.2.0)
       '@tiptap/extension-link': 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
       '@tiptap/react': 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
@@ -1165,8 +1171,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@next/env@13.4.7:
-    resolution: {integrity: sha512-ZlbiFulnwiFsW9UV1ku1OvX/oyIPLtMk9p/nnvDSwI0s7vSoZdRtxXNsaO+ZXrLv/pMbXVGq4lL8TbY9iuGmVw==}
+  /@next/env@13.4.8:
+    resolution: {integrity: sha512-twuSf1klb3k9wXI7IZhbZGtFCWvGD4wXTY2rmvzIgVhXhs7ISThrbNyutBx3jWIL8Y/Hk9+woytFz5QsgtcRKQ==}
     dev: false
 
   /@next/eslint-plugin-next@13.4.5:
@@ -1175,8 +1181,8 @@ packages:
       glob: 7.1.7
     dev: false
 
-  /@next/swc-darwin-arm64@13.4.7:
-    resolution: {integrity: sha512-VZTxPv1b59KGiv/pZHTO5Gbsdeoxcj2rU2cqJu03btMhHpn3vwzEK0gUSVC/XW96aeGO67X+cMahhwHzef24/w==}
+  /@next/swc-darwin-arm64@13.4.8:
+    resolution: {integrity: sha512-MSFplVM4dTWOuKAUv0XR9gY7AWtMSBu9os9f+kp+s5rWhM1I2CdR3obFttd6366nS/W/VZxbPM5oEIdlIa46zA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
@@ -1184,8 +1190,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-darwin-x64@13.4.7:
-    resolution: {integrity: sha512-gO2bw+2Ymmga+QYujjvDz9955xvYGrWofmxTq7m70b9pDPvl7aDFABJOZ2a8SRCuSNB5mXU8eTOmVVwyp/nAew==}
+  /@next/swc-darwin-x64@13.4.8:
+    resolution: {integrity: sha512-Reox+UXgonon9P0WNDE6w85DGtyBqGitl/ryznOvn6TvfxEaZIpTgeu3ZrJLU9dHSMhiK7YAM793mE/Zii2/Qw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
@@ -1193,8 +1199,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-arm64-gnu@13.4.7:
-    resolution: {integrity: sha512-6cqp3vf1eHxjIDhEOc7Mh/s8z1cwc/l5B6ZNkOofmZVyu1zsbEM5Hmx64s12Rd9AYgGoiCz4OJ4M/oRnkE16/Q==}
+  /@next/swc-linux-arm64-gnu@13.4.8:
+    resolution: {integrity: sha512-kdyzYvAYtqQVgzIKNN7e1rLU8aZv86FDSRqPlOkKZlvqudvTO0iohuTPmnEEDlECeBM6qRPShNffotDcU/R2KA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -1202,8 +1208,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-arm64-musl@13.4.7:
-    resolution: {integrity: sha512-T1kD2FWOEy5WPidOn1si0rYmWORNch4a/NR52Ghyp4q7KyxOCuiOfZzyhVC5tsLIBDH3+cNdB5DkD9afpNDaOw==}
+  /@next/swc-linux-arm64-musl@13.4.8:
+    resolution: {integrity: sha512-oWxx4yRkUGcR81XwbI+T0zhZ3bDF6V1aVLpG+C7hSG50ULpV8gC39UxVO22/bv93ZlcfMY4zl8xkz9Klct6dpQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -1211,8 +1217,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-x64-gnu@13.4.7:
-    resolution: {integrity: sha512-zaEC+iEiAHNdhl6fuwl0H0shnTzQoAoJiDYBUze8QTntE/GNPfTYpYboxF5LRYIjBwETUatvE0T64W6SKDipvg==}
+  /@next/swc-linux-x64-gnu@13.4.8:
+    resolution: {integrity: sha512-anhtvuO6eE9YRhYnaEGTfbpH3L5gT/9qPFcNoi6xS432r/4DAtpJY8kNktqkTVevVIC/pVumqO8tV59PR3zbNg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -1220,8 +1226,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-x64-musl@13.4.7:
-    resolution: {integrity: sha512-X6r12F8d8SKAtYJqLZBBMIwEqcTRvUdVm+xIq+l6pJqlgT2tNsLLf2i5Cl88xSsIytBICGsCNNHd+siD2fbWBA==}
+  /@next/swc-linux-x64-musl@13.4.8:
+    resolution: {integrity: sha512-aR+J4wWfNgH1DwCCBNjan7Iumx0lLtn+2/rEYuhIrYLY4vnxqSVGz9u3fXcgUwo6Q9LT8NFkaqK1vPprdq+BXg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -1229,8 +1235,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-arm64-msvc@13.4.7:
-    resolution: {integrity: sha512-NPnmnV+vEIxnu6SUvjnuaWRglZzw4ox5n/MQTxeUhb5iwVWFedolPFebMNwgrWu4AELwvTdGtWjqof53AiWHcw==}
+  /@next/swc-win32-arm64-msvc@13.4.8:
+    resolution: {integrity: sha512-OWBKIrJwQBTqrat0xhxEB/jcsjJR3+diD9nc/Y8F1mRdQzsn4bPsomgJyuqPVZs6Lz3K18qdIkvywmfSq75SsQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
@@ -1238,8 +1244,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-ia32-msvc@13.4.7:
-    resolution: {integrity: sha512-6Hxijm6/a8XqLQpOOf/XuwWRhcuc/g4rBB2oxjgCMuV9Xlr2bLs5+lXyh8w9YbAUMYR3iC9mgOlXbHa79elmXw==}
+  /@next/swc-win32-ia32-msvc@13.4.8:
+    resolution: {integrity: sha512-agiPWGjUndXGTOn4ChbKipQXRA6/UPkywAWIkx7BhgGv48TiJfHTK6MGfBoL9tS6B4mtW39++uy0wFPnfD0JWg==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
@@ -1247,8 +1253,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-x64-msvc@13.4.7:
-    resolution: {integrity: sha512-sW9Yt36Db1nXJL+mTr2Wo0y+VkPWeYhygvcHj1FF0srVtV+VoDjxleKtny21QHaG05zdeZnw2fCtf2+dEqgwqA==}
+  /@next/swc-win32-x64-msvc@13.4.8:
+    resolution: {integrity: sha512-UIRKoByVKbuR6SnFG4JM8EMFlJrfEGuUQ1ihxzEleWcNwRMMiVaCj1KyqfTOW8VTQhJ0u8P1Ngg6q1RwnIBTtw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -1455,18 +1461,18 @@ packages:
       tslib: 2.6.0
     dev: false
 
-  /@tabler/icons-react@2.22.0(react@18.2.0):
-    resolution: {integrity: sha512-9udRxrbsbWzUETur4jmbZQIZkH7jVA2GU7YnKYS7ZCUjdOHZZEhmsfJ/Gdbzz0gSRC3mU7SDMsKejun/IBjvpQ==}
+  /@tabler/icons-react@2.23.0(react@18.2.0):
+    resolution: {integrity: sha512-+H4mC1EZVCzCRhnPwZEVTI0veVCJuAKlopeCnRlfsYcmzgJm6Ye234c4A2qrLPQoi1Y29uN9+kqCyuYW007jPg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@tabler/icons': 2.22.0
+      '@tabler/icons': 2.23.0
       prop-types: 15.8.1
       react: 18.2.0
     dev: false
 
-  /@tabler/icons@2.22.0:
-    resolution: {integrity: sha512-lOsGHqRPIKNARMWHHFkUUJH78C8ptQmUcDnumFBUI4YLRKFouKa7uAZL3ZfuH0HjDpOhsnWqUYZ7FhMCLcGpAQ==}
+  /@tabler/icons@2.23.0:
+    resolution: {integrity: sha512-dU54aBwaxG0H+jQ4BdrqtYFN5L7PZevvlnzyL6XeOZgfDS3+sVNCtuG3JmpTEqQSwGLYC1IEwogPGA/Iit2bOA==}
     dev: false
 
   /@tailwindcss/forms@0.5.3(tailwindcss@3.3.2):
@@ -1838,6 +1844,12 @@ packages:
 
   /@types/node@20.3.1:
     resolution: {integrity: sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg==}
+
+  /@types/nodemailer@6.4.8:
+    resolution: {integrity: sha512-oVsJSCkqViCn8/pEu2hfjwVO+Gb3e+eTWjg3PcjeFKRItfKpKwHphQqbYmPQrlMk+op7pNNWPbsJIEthpFN/OQ==}
+    dependencies:
+      '@types/node': 20.3.1
+    dev: true
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -4420,8 +4432,8 @@ packages:
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  /next@13.4.7(@babel/core@7.22.6)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-M8z3k9VmG51SRT6v5uDKdJXcAqLzP3C+vaKfLIAM0Mhx1um1G7MDnO63+m52qPdZfrTFzMZNzfsgvm3ghuVHIQ==}
+  /next@13.4.8(@babel/core@7.22.6)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-lxUjndYKjZHGK3CWeN2RI+/6ni6EUvjiqGWXAYPxUfGIdFGQ5XoisrqAJ/dF74aP27buAfs8MKIbIMMdxjqSBg==}
     engines: {node: '>=16.8.0'}
     hasBin: true
     peerDependencies:
@@ -4438,7 +4450,7 @@ packages:
       sass:
         optional: true
     dependencies:
-      '@next/env': 13.4.7
+      '@next/env': 13.4.8
       '@swc/helpers': 0.5.1
       busboy: 1.6.0
       caniuse-lite: 1.0.30001512
@@ -4449,15 +4461,15 @@ packages:
       watchpack: 2.4.0
       zod: 3.21.4
     optionalDependencies:
-      '@next/swc-darwin-arm64': 13.4.7
-      '@next/swc-darwin-x64': 13.4.7
-      '@next/swc-linux-arm64-gnu': 13.4.7
-      '@next/swc-linux-arm64-musl': 13.4.7
-      '@next/swc-linux-x64-gnu': 13.4.7
-      '@next/swc-linux-x64-musl': 13.4.7
-      '@next/swc-win32-arm64-msvc': 13.4.7
-      '@next/swc-win32-ia32-msvc': 13.4.7
-      '@next/swc-win32-x64-msvc': 13.4.7
+      '@next/swc-darwin-arm64': 13.4.8
+      '@next/swc-darwin-x64': 13.4.8
+      '@next/swc-linux-arm64-gnu': 13.4.8
+      '@next/swc-linux-arm64-musl': 13.4.8
+      '@next/swc-linux-x64-gnu': 13.4.8
+      '@next/swc-linux-x64-musl': 13.4.8
+      '@next/swc-win32-arm64-msvc': 13.4.8
+      '@next/swc-win32-ia32-msvc': 13.4.8
+      '@next/swc-win32-x64-msvc': 13.4.8
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -4472,6 +4484,11 @@ packages:
 
   /node-releases@2.0.12:
     resolution: {integrity: sha512-QzsYKWhXTWx8h1kIvqfnC++o0pEmpRQA/aenALsL2F4pqNVr7YzcdMlDij5WBnwftRbJCNJL/O7zdKaxKPHqgQ==}
+    dev: false
+
+  /nodemailer@6.9.3:
+    resolution: {integrity: sha512-fy9v3NgTzBngrMFkDsKEj0r02U7jm6XfC3b52eoNV+GCrGj+s8pt5OqhiJdWKuw51zCTdiNR/IUD1z33LIIGpg==}
+    engines: {node: '>=6.0.0'}
     dev: false
 
   /nodemon@2.0.22:
