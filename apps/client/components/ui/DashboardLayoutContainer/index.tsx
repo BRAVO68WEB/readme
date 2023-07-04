@@ -39,6 +39,7 @@ interface DashboardLayoutContainerProps {
 
 export default function DashboardLayoutContainer({ children }: DashboardLayoutContainerProps) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [sidebarExpand, setSidebarExpand] = useState(false);
 
     return (
         <>
@@ -158,9 +159,19 @@ export default function DashboardLayoutContainer({ children }: DashboardLayoutCo
                 </Transition.Root>
 
                 {/* Static sidebar for desktop */}
-                <div className="hidden h-screen lg:inset-y-0 lg:z-50 lg:flex  lg:flex-col">
+                <div className={cn("hidden h-screen lg:inset-y-0 lg:z-50 lg:flex lg:flex-col")}>
                     {/* Sidebar component, swap this element with another sidebar if you like */}
-                    <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
+                    <div
+                        className={cn(
+                            "flex w-20 grow flex-col gap-y-5 overflow-hidden overflow-y-auto bg-gray-900 px-6 pb-4",
+                            {
+                                "w-[24rem]": sidebarExpand,
+                            },
+                        )}
+                        style={{
+                            transition: "0.5s",
+                        }}
+                    >
                         <div className="flex h-16 shrink-0 items-center">
                             <img
                                 className="h-8 w-auto"
@@ -177,16 +188,20 @@ export default function DashboardLayoutContainer({ children }: DashboardLayoutCo
                                                 <a
                                                     href={item.href}
                                                     className={cn(
-                                                        item.current
-                                                            ? "bg-gray-800 text-white"
-                                                            : "text-gray-400 hover:bg-gray-800 hover:text-white",
-                                                        "group flex flex justify-center gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
+                                                        "px-auto group flex w-full items-center gap-x-3 overflow-hidden rounded-md p-2 px-3 text-sm font-semibold leading-6 transition",
+                                                        {
+                                                            "bg-gray-800 text-white": item.current,
+                                                            "text-gray-400 hover:bg-gray-800 hover:text-white":
+                                                                !item.current,
+                                                            "w-full": sidebarExpand,
+                                                        },
                                                     )}
                                                 >
                                                     <item.icon
                                                         className="h-6 w-6 shrink-0"
                                                         aria-hidden="true"
                                                     />
+                                                    {item.name}
                                                 </a>
                                             </li>
                                         ))}
@@ -194,17 +209,28 @@ export default function DashboardLayoutContainer({ children }: DashboardLayoutCo
                                 </li>
                                 <li className="mt-auto">
                                     <ul className="-mx-2 space-y-1">
+                                        <button
+                                            type={"button"}
+                                            onClick={() => setSidebarExpand(old => !old)}
+                                            className="flex w-full items-center gap-x-3 rounded-md p-2 px-3 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
+                                        >
+                                            <Bars3Icon
+                                                className="h-6 w-6 shrink-0"
+                                                aria-hidden="true"
+                                            />
+                                        </button>
                                         {settingsNavigation.map((item, index) => {
                                             return (
                                                 <li key={index} className={"my-2"}>
                                                     <a
                                                         href="#"
-                                                        className="group -mx-2 flex justify-center gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
+                                                        className="flex w-full items-center gap-x-3 rounded-md p-2 px-3 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white"
                                                     >
                                                         <item.icon
                                                             className="h-6 w-6 shrink-0"
                                                             aria-hidden="true"
                                                         />
+                                                        {sidebarExpand && item.name}
                                                     </a>
                                                 </li>
                                             );
