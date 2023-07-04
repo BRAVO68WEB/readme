@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/eslintrc",
-    "extends": ["next/core-web-vitals", "@bravo68web/eslint-config/code-style"],
+    "extends": ["next/core-web-vitals", "@bravo68web/eslint-config/code-style","../../.eslintrc.json"],
     "rules": {
         "react/button-has-type": "off"
     }
