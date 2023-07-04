@@ -271,10 +271,10 @@
     eslint-plugin-tailwindcss "3.12.1"
     eslint-plugin-unicorn "47.0.0"
 
-"@bravo68web/prettier-config@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@bravo68web/prettier-config/-/prettier-config-1.0.3.tgz#8386273c0ffda3b58ba7e41ca534478c06cc9c16"
-  integrity sha512-PHg/Qdo3jNWqN1xeMAecPJx/J+S6CE+OOoZSy9kGWDFdlO2NFGU5hCJuNe1ExlnSQqdnIwIh6br3i81f/wa3dw==
+"@bravo68web/prettier-config@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@bravo68web/prettier-config/-/prettier-config-1.1.2.tgz#18c4ae6df2e0e85e571e5b5b030bca1552f41a82"
+  integrity sha512-edTR08pAFTU+Tuv42oMOoTdgwRXiyKW8J8WY0HXpRyvit7lUzL1uHh/CNoCQZOWV8Ao7STOjVVWOQiCwg6HAcA==
   dependencies:
     prettier-plugin-package-perfection "1.1.0"
     prettier-plugin-prisma "4.13.0"
