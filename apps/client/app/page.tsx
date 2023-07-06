@@ -1,7 +1,7 @@
 import Posts from "@/components/Posts";
 import Navbar from "@/components/ui/Navbar";
 
-const posts = [
+const posts: IPost[] = [
     {
         id: 1,
         title: "How I Deployed on Vercel",

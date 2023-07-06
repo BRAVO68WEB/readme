@@ -1,7 +1,7 @@
 import React from "react";
 
 interface PostsProps {
-    posts: { id: number; title: string; date: string; img: string }[];
+    posts: IPost[];
 }
 
 const Posts = ({ posts }: PostsProps) => {
