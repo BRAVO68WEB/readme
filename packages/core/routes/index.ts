@@ -5,8 +5,8 @@ import { logger } from "hono/logger";
 import { poweredBy } from "hono/powered-by";
 
 import pkg from "../package.json";
-import { user } from "./user.routes";
 import { post } from "./post.routes";
+import { user } from "./user.routes";
 
 const app = new Hono();
 

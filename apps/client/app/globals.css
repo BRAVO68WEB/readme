@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-	height: 100%;
+:root {
+    --color-text: 3 3 18;
+    --color-secondary: 255 255 255;
+    --color-accent: 17 218 232;
 }
 
-body {
-	height: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

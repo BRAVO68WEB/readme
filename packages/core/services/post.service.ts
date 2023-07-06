@@ -1,6 +1,5 @@
-import { genNewSnowflakeId } from "../utils"
-
 import DBClient from "../providers/database-client";
+import { genNewSnowflakeId } from "../utils";
 
 export default class PostService {
     private db = DBClient;
@@ -13,8 +12,7 @@ export default class PostService {
     ) {
         const uid = genNewSnowflakeId();
         this.db.createPost(uid, title, content, tags, author_id);
-        const result = await this.db.getPost(uid);
-        return result;
+        return await this.db.getPost(uid);
     }
 
     public updatePostS(id: string, updateContent: any) {
