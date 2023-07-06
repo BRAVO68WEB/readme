@@ -1,9 +1,10 @@
-import Button from "@/components/ui/Button";
+import Navbar from "@/components/ui/Navbar";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between bg-background p-24">
-            <Button variant={"primary"}>Button</Button>
-        </main>
+        <>
+            <Navbar />
+            <main className="flex flex-col items-center justify-between bg-background p-24"></main>
+        </>
     );
 }
