@@ -7,7 +7,6 @@ DBClient.init();
 
 if (DBClient.getUsers().length === 0) {
 	console.log("❌ No users are present!");
-	process.exit(1);
 }
 
 const questions = await enquirer.prompt([

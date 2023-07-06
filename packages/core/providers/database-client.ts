@@ -126,7 +126,7 @@ export class DBClient {
 		return result.map((post: any) => ({
 			...post,
 			tags: JSON.parse(post.tags)
-		}))
+		}));
 	}
 
 	public updatePost(id: string, updateContent: any) {
@@ -143,7 +143,7 @@ export class DBClient {
 
 	public deletePost(id: string) {
 		return this.db
-			.prepare(`DELETE FROM posts WHERE id = ?`)
+			.prepare("DELETE FROM posts WHERE id = ?")
 			.run(id);
 	}
 }

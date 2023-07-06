@@ -10,7 +10,6 @@
 	"scripts": {
 		"build": "tsc",
 		"dev": "NODE_ENV=development nodemon --watch '**/*.ts' --exec node --loader @esbuild-kit/esm-loader index.ts",
-		"prepare": "is-ci",
 		"user:create": "node --loader @esbuild-kit/esm-loader scripts/prepare.ts",
 		"user:reset:password": "node --loader @esbuild-kit/esm-loader scripts/reset-password.ts",
 		"start": "node --loader @esbuild-kit/esm-loader index.ts"
