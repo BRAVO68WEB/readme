@@ -13,7 +13,7 @@ export default class PostController extends PostService {
                 success: false,
             });
         }
-    }
+    };
 
     public getPost = (ctx: Context) => {
         try {
@@ -26,12 +26,12 @@ export default class PostController extends PostService {
                 success: false,
             });
         }
-    }
+    };
 
     public createPost = async (ctx: Context) => {
         try {
             const body = await ctx.req.json();
-            const user_id = ctx.req.header('user_id') as string;
+            const user_id = ctx.req.header("user_id") as string;
             const post = await this.createPostS(
                 body.title,
                 body.content,
@@ -45,7 +45,7 @@ export default class PostController extends PostService {
                 success: false,
             });
         }
-    }
+    };
 
     public updatePost = async (ctx: Context) => {
         try {
@@ -59,7 +59,7 @@ export default class PostController extends PostService {
                 success: false,
             });
         }
-    }
+    };
 
     public deletePost = (ctx: Context) => {
         try {
@@ -72,5 +72,5 @@ export default class PostController extends PostService {
                 success: false,
             });
         }
-    }
+    };
 }
