@@ -26,7 +26,7 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <main className="items-center justify-between bg-background p-24">
+            <main className="items-center justify-between bg-background p-8 md:p-16 lg:p-20 xl:p-24">
                 <Posts posts={posts} />
             </main>
         </>

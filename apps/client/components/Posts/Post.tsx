@@ -4,8 +4,13 @@ interface PostProps {
 
 const Post = ({ post }: PostProps) => {
     return (
-        <div className="post flex aspect-square w-full flex-col justify-between rounded-xl bg-yellow-300 p-6">
-            <h2 className={"text-5xl font-bold"}>{post.title}</h2>
+        <div className="post relative flex aspect-square w-full flex-col justify-between rounded-xl bg-yellow-300 p-8 xl:p-12">
+            <img
+                src="/thumbpin.png"
+                className={"absolute -right-5 -top-10 h-1/6 w-1/6 object-contain object-center"}
+                alt=""
+            />
+            <h2 className={"text-4xl font-bold"}>{post.title}</h2>
             <div className="flex w-full items-baseline justify-between">
                 <img
                     src={post.img}
