@@ -6,6 +6,7 @@ import { poweredBy } from "hono/powered-by";
 
 import pkg from "../package.json";
 import { post } from "./post.routes";
+import { upload } from "./upload.routes";
 import { user } from "./user.routes";
 
 const app = new Hono();
@@ -25,9 +26,10 @@ app.use(
 // Routes
 app.route("/users", user);
 app.route("/posts", post);
+app.route("/upload", upload);
 
 // Static Files
-app.use("/uplaods", serveStatic({ root: "./uploads" }));
+app.use("/uploads/*", serveStatic({ root: "./" }));
 
 // Health Check
 app.get("/health", (ctx) => {
@@ -45,3 +47,4 @@ app.get("/", (ctx) => {
 });
 
 export { app };
+
