@@ -1,15 +1,15 @@
 {
-  "$schema": "https://json.schemastore.org/eslintrc",
-  "extends": [
-    "next/core-web-vitals",
-    "@bravo68web/eslint-config/code-style",
-    "../../.eslintrc.json"
-  ],
-  "rules": {
-    "react/button-has-type": "off",
-    "react/no-array-index-key": "off",
-    "@next/next/no-img-element": "off",
-    "tailwindcss/no-custom-classname": "off",
-    "unicorn/filename-case": "off"
-  }
+    "$schema": "https://json.schemastore.org/eslintrc",
+    "extends": [
+        "next/core-web-vitals",
+        "@bravo68web/eslint-config/code-style",
+        "../../.eslintrc.json"
+    ],
+    "rules": {
+        "@next/next/no-img-element": "off",
+        "react/button-has-type": "off",
+        "react/no-array-index-key": "off",
+        "tailwindcss/no-custom-classname": "off",
+        "unicorn/filename-case": "off"
+    }
 }
