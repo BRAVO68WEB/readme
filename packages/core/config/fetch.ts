@@ -9,7 +9,7 @@ declare global {
 }
 
 const ZodEnvironmentVariables = z.object({
-	PORT: z.string(),
+	// PORT: z.string(),
 });
 
 ZodEnvironmentVariables.parse(process.env);

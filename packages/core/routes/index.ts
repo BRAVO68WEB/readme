@@ -9,7 +9,7 @@ import { post } from "./post.routes";
 import { upload } from "./upload.routes";
 import { user } from "./user.routes";
 
-const app = new Hono();
+const app = new Hono().basePath("/api");
 
 // Middlewares
 app.use("*", poweredBy());

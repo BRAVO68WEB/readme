@@ -26,10 +26,10 @@
 	"exclude": ["node_modules"],
 	"extends": "@bravo68web/tsconfig/base.json",
 	"include": [
-		"packages/micro-app/next-env.d.ts",
+		"apps/client/next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"packages/micro-app/.next/types/**/*.ts"
+		"apps/client/.next/types/**/*.ts"
 	],
 	"rules": {
 		"@typescript-eslint/no-unsafe-argument": "off"
