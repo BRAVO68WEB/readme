@@ -7,7 +7,9 @@
 	"author": "BRAVO68WEB",
 	"scripts": {
 		"prettier": "prettier --write .",
-		"lint": "eslint --fix ."
+		"lint": "eslint --fix .",
+		"dev": "turbo dev",
+		"proxy": "./scripts/start-proxy-server.sh"
 	},
 	"workspaces": [
 		"packages/*",
@@ -17,6 +19,7 @@
 		"@bravo68web/tsconfig": "^1.1.2",
 		"deepmerge": "^4.3.1",
 		"eslint": "^8.44.0",
-		"prettier": "^2.8.8"
+		"prettier": "^2.8.8",
+		"turbo": "^1.10.7"
 	}
 }

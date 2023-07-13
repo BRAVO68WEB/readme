@@ -9,6 +9,8 @@ wss.on("connection", (ws) => {
   
 	ws.on("message", (data) => {
 		console.log("received: %s", data);
+
+        ws.send(data);
 	});
   
 	ws.send("something");
