@@ -8,8 +8,9 @@ import pkg from "../package.json";
 import { post } from "./post.routes";
 import { upload } from "./upload.routes";
 import { user } from "./user.routes";
+import { wellknown } from "./well-known.routes";
 
-const app = new Hono().basePath("/api");
+const app = new Hono();
 
 // Middlewares
 app.use("*", poweredBy());
@@ -37,6 +38,9 @@ app.get("/health", (ctx) => {
 		status: "OK",
 	});
 });
+
+// Meta Routes
+app.route("/.well-known", wellknown);
 
 // Root Route
 app.get("/", (ctx) => {

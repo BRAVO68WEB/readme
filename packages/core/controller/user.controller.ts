@@ -18,10 +18,10 @@ export default class UserController extends UserService {
 		}
 	};
 
-	public getUser = (ctx: Context) => {
+	public getUser = async (ctx: Context) => {
 		try {
 			const username = ctx.req.param("username");
-			const user = this.getUserS(username);
+			const user = await this.getUserS(username);
 			return ctx.json(user);
 		} catch (error: any) {
 			console.log(error);
