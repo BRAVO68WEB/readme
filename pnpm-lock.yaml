@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@bravo68web/tsconfig':
-        specifier: ^1.1.2
-        version: 1.1.2(typescript@5.1.6)
+        specifier: ^1.2.2
+        version: 1.2.2(typescript@5.1.6)
       deepmerge:
         specifier: ^4.3.1
         version: 4.3.1
@@ -97,8 +97,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(eslint@8.44.0)(prettier@3.0.0)
       '@bravo68web/tsconfig':
-        specifier: ^1.1.2
-        version: 1.1.2(typescript@5.1.6)
+        specifier: ^1.2.2
+        version: 1.2.2(typescript@5.1.6)
       prettier:
         specifier: ^3.0.0
         version: 3.0.0
@@ -155,8 +155,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(eslint@8.44.0)(prettier@3.0.0)
       '@bravo68web/tsconfig':
-        specifier: ^1.1.2
-        version: 1.1.2(typescript@5.1.6)
+        specifier: ^1.2.2
+        version: 1.2.2(typescript@5.1.6)
       '@esbuild-kit/esm-loader':
         specifier: ^2.5.5
         version: 2.5.5
@@ -296,8 +296,8 @@ packages:
       - webdriverio
     dev: true
 
-  /@bravo68web/tsconfig@1.1.2(typescript@5.1.6):
-    resolution: {integrity: sha512-LXIxzMkiAjwCHQBLLKJkLCe8+kYHEKIO8yFPfeZ0reHF5lXNJFnkG6faAiGobyHeaGGuFeiwP2X4HwsAva4Wsw==}
+  /@bravo68web/tsconfig@1.2.2(typescript@5.1.6):
+    resolution: {integrity: sha512-4ZJebs6w1yt2eNk0c8rZsaWAIjtE3HPquQRcB94JNRRnT57ceP627p9KqFHN11tS7lmMJqU6DYfB0g3hNl8KDQ==}
     peerDependencies:
       typescript: 5.x
     dependencies:
