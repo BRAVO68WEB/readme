@@ -14,7 +14,7 @@
 		"apps/*"
 	],
 	"devDependencies": {
-		"@bravo68web/tsconfig": "^1.1.2",
+		"@bravo68web/tsconfig": "^1.2.2",
 		"deepmerge": "^4.3.1",
 		"eslint": "^8.44.0",
 		"prettier": "^3.0.0"
