@@ -121,8 +121,8 @@ importers:
         specifier: ^2.3.6
         version: 2.3.6
       hono:
-        specifier: ^3.2.7
-        version: 3.2.7
+        specifier: ^3.11.8
+        version: 3.11.8
       hyperflake:
         specifier: ^0.1.0
         version: 0.1.0
@@ -2657,8 +2657,8 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
-  /hono@3.2.7:
-    resolution: {integrity: sha512-7YCF9t4oMF3L3ghvcmlEBx2hoC9VyBBLuVrPZiOkU7PtFBrnQtkFEnYCRcPKCJiMoXHX3bDhU9R3HQbw+WnQJg==}
+  /hono@3.11.8:
+    resolution: {integrity: sha512-s+7FDN0CS0lAvooyj4oQw0PyEec7I+YuVg40gtFHuUrfHBEhKITrLu4dskTdeYn0Xvhbz7s4yRJebJx6gCN/5Q==}
     engines: {node: '>=16.0.0'}
     dev: false
 
