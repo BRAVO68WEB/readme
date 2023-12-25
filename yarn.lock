@@ -2308,10 +2308,10 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hono@^3.2.7:
-  version "3.2.7"
-  resolved "https://registry.yarnpkg.com/hono/-/hono-3.2.7.tgz#8a5ba1a0d6d0cbe8df7bc134c7d10c3dbe1f901b"
-  integrity sha512-7YCF9t4oMF3L3ghvcmlEBx2hoC9VyBBLuVrPZiOkU7PtFBrnQtkFEnYCRcPKCJiMoXHX3bDhU9R3HQbw+WnQJg==
+hono@^3.11.10:
+  version "3.11.10"
+  resolved "https://registry.yarnpkg.com/hono/-/hono-3.11.10.tgz#3b774c5d77f72af33affa98ad4910902bc327358"
+  integrity sha512-vizPp5PfVq5dwgN+EM+8v7RHlvrrEbnpkHtM2GMsl6KICA/MvWcnEMJ5L8SjYPxueB8VJMwc6nzzgKj5Vovp7g==
 
 hosted-git-info@^2.1.4:
   version "2.8.9"
